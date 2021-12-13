@@ -18,7 +18,7 @@ def geraGraficoLinhas(listX=[],
         style (str): Stylo do Gráfico
 
     Return:
-        (str) Senha gerada
+        Gráfico gerado através do matplotlib
     '''                      
     
     plt.style.use(style) #DEFINIÇÃO DO STYLO DO GRÁFICO
