@@ -26,7 +26,7 @@ def geraGraficoLinhas(listX=[],
     Return:
         Gráfico gerado através do matplotlib
     '''  
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(10, 6)) #TAMANHO DA FIGURA EM POLEGADAS
     plt.style.use(style) #DEFINIÇÃO DO STYLO DO GRÁFICO
     if title:
         plt.title(title) #DEFINIÇÃO DO TÍTULO
@@ -76,15 +76,17 @@ def geraGraficoPizza(listValues, listLabels, title=None):
 if __name__ == '__main__':
     listX = ['2019', '2020', '2021']
     listY = [100, 250, 360]
-    
+    listY2 = [120, 60, 320]
+
+    #EXEMPLO DE GRÁFICO COM UMA SERIE DE DADOS
     geraGraficoLinhas(listX=listX, 
                       listY=listY, 
                       labelY='Label Eixo Y',
                       labelX='Label Eixo X',
                       title='Título do Gráfico'
-                      )    
-
-    listY2 = [120, 60, 320]
+                      )  
+    
+    #EXEMPLO DE GRÁFICO COM DUAS SERIES DE DADOS                        
     geraGraficoLinhas(listX=listX, 
                       listY=listY, 
                       listX2=listX,
@@ -93,5 +95,28 @@ if __name__ == '__main__':
                       labelX='Label Eixo X',
                       title='Título do Gráfico'
                       )  
-
+    
+    #EXEMPLO DE GRÁFICO DE PIZZA
     geraGraficoPizza(listY, listX)      
+
+    #EXEMPLO DE PLOT DE FIGURA COM MAIS DE UM GRÁFICO
+    figure = plt.figure(figsize=(10,5))
+    figure.suptitle("Teste")
+    
+    figure.add_subplot(131) #1 LINHAS, 3 COLUNAS E INDICAÇÃO DO NÚMERO DA COLUNA DO GRÁFICO QUE SERÁ CRIADO
+    plt.plot(listX, listY, listX, listY2, label='Label do gráfico 1')
+    plt.legend()
+    plt.title('Gráfico 1')
+
+    figure.add_subplot(132)
+    plt.plot(listX, listY, listX, listY2, label='Label do gráfico 1')
+    plt.legend()
+    plt.title('Gráfico 2')
+
+    figure.add_subplot(133)
+    plt.plot(listX, listY, listX, listY2, label='Label do gráfico 1')
+    plt.legend()
+    plt.title('Gráfico 2')
+
+    plt.savefig('graficos.png') #SALVAR O GRÁFICO
+    plt.show()

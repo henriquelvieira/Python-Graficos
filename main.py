@@ -14,4 +14,4 @@ geraGraficoLinhas(listX=listX,
                   title=f'Acompanhamento - Total {vTotal}'
                  )   
 
-geraGraficoPizza(listY, listX)    
+geraGraficoPizza(listY, listX) 
