@@ -1,1 +1,2 @@
 https://minerandodados.com.br/plotando-graficos-de-forma-facil-com-python/
+https://paulovasconcellos.com.br/como-criar-gr%C3%A1ficos-interativos-utilizando-plotly-e-python-3eb6eda57a2b
