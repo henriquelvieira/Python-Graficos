@@ -2,14 +2,15 @@
 
 import pandas as pd
 import plotly.express as px
-
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
 
 listX = ['2019', '2020', '2021']
 listY = [100, 50, 360]
 
 
 #CONTROLE DE VISUALIZAÇÃO DOS GRÁFICOS
-show = 5
+show = 6
 
 if show == 0:
     
@@ -82,3 +83,29 @@ elif show == 5 :
                       width=800, height=400)
     fig.update_yaxes(autorange='reversed')                      
     fig.show()  
+
+elif show == 6 :    
+    
+    #PLOT DE GRÁFICOS DIFERENTES NA MESMA IMAGEM
+    fig = make_subplots(
+        rows=2, cols=2,
+        specs=[[{"type": "xy"}, {"type": "polar"}],
+            [{"type": "domain"}, {"type": "scene"}]],
+    )
+
+    fig.add_trace(go.Bar(y=[2, 3, 1]),
+                row=1, col=1)
+
+    fig.add_trace(go.Barpolar(theta=[0, 45, 90], r=[2, 3, 1]),
+                row=1, col=2)
+
+    fig.add_trace(go.Pie(values=[2, 3, 1]),
+                row=2, col=1)
+
+    fig.add_trace(go.Scatter3d(x=[2, 3, 1], y=[0, 0, 0],
+                            z=[0.5, 1, 2], mode="lines"),
+                row=2, col=2)
+
+    fig.update_layout(height=700, showlegend=False)
+
+    fig.show()
